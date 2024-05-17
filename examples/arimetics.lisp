@@ -1,0 +1,22 @@
+(defun hello-world ()
+(terpri)
+(princ "Enter X: ")
+(setq x (read))
+(princ "Enter Y: ")
+(setq y (read))
+(write x)
+(terpri)
+(write y)
+(terpri)
+(write (+ x y))
+(terpri)
+(write (* x y))
+(terpri)
+(write (- x y))
+(terpri)
+(write (/ x y))
+
+
+)
+(hello-world)
+
