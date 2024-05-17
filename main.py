@@ -62,7 +62,9 @@ class Env(dict):
         self.outer = outer
     def find(self, var):
         "Find the innermost Env where var appears."
+        print(var,self)
         return self if (var in self) else self.outer.find(var)
+
 
 def standard_env():
     "An environment with some Scheme standard procedures."
@@ -73,7 +75,7 @@ def standard_env():
         '>':gt, '<':lt, '>=':ge, '<=':le, '=':eq, 
         'abs':     abs,
         #'append':  add,  
-	'print': lambda *args: print(*args),
+	   'print': lambda *args: print(*args),
         'begin':   lambda *x: x[-1],
         'car':     lambda x: x[0],
         'cdr':     lambda x: x[1:], 
@@ -95,8 +97,7 @@ def standard_env():
     })
     return env
 
-
-
+#(печать "hola") 
 
 ################ Interaction: A REPL
 
@@ -144,7 +145,7 @@ def eval(x, env=standard_env):
     elif x[0] == 'set!':
         (_, var, exp) = x
         env.find(var)[var] = eval(exp, env)
-    elif x[0] == 'print':
+    elif x[0] == 'print' or x[0] == 'печать' or x[0] == 'drucken' or x[0] == 'друк':# like python 2
         print(*x[1:])
     elif x[0] == 'lambda':
         (_, parms, body) = x
