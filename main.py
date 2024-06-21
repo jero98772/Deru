@@ -584,10 +584,10 @@ repl_env.set(types._symbol('eval'), lambda ast: EVAL(ast, repl_env))
 repl_env.set(types._symbol('*ARGV*'), types._list(*sys.argv[2:]))
 
 # core.mal: defined using the language itself
-REP("(def! *host-language* \"python\")")
-REP("(def! not (fn* (a) (if a false true)))")
-REP("(def! load-file (fn* (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
-REP("(defmacro! cond (fn* (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
+REP("(let *host-language* \"python\")")
+REP("(let not (fn (a) (if a false true)))")
+REP("(let load-file (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
+REP("(defmacro cond (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
 
 if len(sys.argv) >= 2:
     REP('(load-file "' + sys.argv[1] + '")')
