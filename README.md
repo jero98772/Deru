@@ -9,15 +9,24 @@ hello word
 
 	(print "hello word")
 
-привітне слово (hello word in ukrain langague)
-
-	(друк "привіт світ")
-
-привітне слово (hello word in russian langague)
-
-	(печать "привет Мир")
-
-привітне слово (hello word in german langague)
+hello word in german langague
 
 	(drucken "Hallo Welt")
 
+
+hello word in russian langague
+
+	(печать "привет Мир"
+
+hello word in ukrain langague
+
+	(друк "привіт світ")
+
+
+### References
+
+https://github.com/fluentpython/lispy
+
+https://norvig.com/lispy.html
+
+https://github.com/kanaka/mal
