@@ -189,6 +189,8 @@ def swap_BANG(atm,f,*args):
     atm.val = f(atm.val,*args)
     return atm.val
 
+def inputeval():
+    return eval(input())
 
 ns = { 
         #'=': types._equal_Q,
@@ -221,6 +223,7 @@ ns = {
         'prn': prn,
         'println': println,
         'input': input,
+        'autoinput': inputeval,
         'readline': lambda prompt: mal_readline.readline(prompt),
         'read-string': reader.read_str,
         'slurp': lambda file: open(file).read(),# this function takes a file name (string) and returns the contents of the file as a string.
@@ -280,6 +283,9 @@ ns = {
         'строка-отображение': pr_str,
         'строка': do_str,
         'печать': prn,
+        'вход': input,
+        'входнойавтомат': inputeval,
+
         'печать-строки': println,
         'читать-строку': lambda prompt: mal_readline.readline(prompt),
         'прочитать-текст': reader.read_str,
@@ -338,7 +344,10 @@ ns = {
         'pr-str': pr_str,
         'str': do_str,
         'drucken': prn,
-        'println': println,
+        'druckenzl': println,
+        'eingabe': input,
+        'eingabeautomatik': inputeval,
+
         'lese-zeile': lambda prompt: mal_readline.readline(prompt),
         'lese-string': reader.read_str,
         'lesen': lambda file: open(file).read(),
@@ -390,6 +399,9 @@ ns = {
         'рядок': do_str,
         'друк': prn,
         'друк-рядка': println,
+        'вхід': input,
+        'вхідавто': inputeval,
+
         'читати-рядок': lambda prompt: mal_readline.readline(prompt),
         'читати-рядок': reader.read_str,
         'читати-файл': lambda file: open(file).read(),

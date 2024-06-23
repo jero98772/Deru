@@ -23,6 +23,13 @@ hello word in ukrain langague
 	(друк "привіт світ")
 
 
+hello + name 
+
+german
+
+	(drucken "hallo" (eingabe "your name\n"))
+
+
 ### References
 
 https://github.com/fluentpython/lispy
