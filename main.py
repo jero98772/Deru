@@ -193,7 +193,7 @@ def inputeval():
     return eval(input())
 
 ns = { 
-        #'=': types._equal_Q,
+        '==': types._equal_Q,
         '<':  lambda a,b: a<b,
         '<=': lambda a,b: a<=b,
         '>':  lambda a,b: a>b,
@@ -202,6 +202,8 @@ ns = {
         '-':  lambda a,b: a-b,
         '*':  lambda a,b: a*b,
         '/':  lambda a,b: int(a/b),
+        '%':  lambda a,b: int(a%b),
+
         'nil?': types._nil_Q, #this answer if is nil , it mean none
 
         'throw': throw, #raises an exception of make a lisp (mal)
@@ -341,8 +343,6 @@ ns = {
         'makro?': lambda x: (types._function_Q(x) and
                              hasattr(x, '_ismacro_') and
                              x._ismacro_),
-        'pr-str': pr_str,
-        'str': do_str,
         'drucken': prn,
         'druckenzl': println,
         'eingabe': input,
@@ -357,7 +357,6 @@ ns = {
         'liste?': types._list_Q,
         'vektor': types._vector,
         'vektor?': types._vector_Q,
-        'hash-map': types._hash_map,
         'karte?': types._hash_map_Q,
         'assoziieren': assoc,
         'dissoc': dissoc,
@@ -382,9 +381,6 @@ ns = {
         'folge': seq,
 
         'mit-meta': with_meta,
-        'meta': meta,
-        'atom': types._atom,
-        'atom?': types._atom_Q,
         'dereferenzieren': deref,
         'zurücksetzen!': reset_BANG,
         'wechseln!': swap_BANG,
@@ -407,8 +403,6 @@ ns = {
         'читати-файл': lambda file: open(file).read(),
         'час-мс': lambda: int(time.time() * 1000),
 
-        'список': types._list,
-        'список?': types._list_Q,
         'хеш-мапа': types._hash_map,
         'мапа?': types._hash_map_Q,
         'асоціювати': assoc,
@@ -416,7 +410,6 @@ ns = {
         'отримати': get,
         'містить?': contains_Q,
         'ключі': keys,
-        'значення': vals,
 
         'послідовний?': types._sequential_Q,
         'додати': cons,
@@ -434,12 +427,8 @@ ns = {
 
         'з-метаданими': with_meta,
         'метадані': meta,
-        'атом': types._atom,
-        'атом?': types._atom_Q,
         'розіменувати': deref,
         'скинути!': reset_BANG,
-        'замінити!': swap_BANG,
-
         }
 # read
 def READ(str):

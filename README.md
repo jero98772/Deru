@@ -16,18 +16,31 @@ hello word in german langague
 
 hello word in russian langague
 
-	(печать "привет Мир"
+	(печать "привет Мир")
 
 hello word in ukrain langague
 
 	(друк "привіт світ")
 
 
-hello + name 
+**more examples**
 
-german
+great you
 
 	(drucken "hallo" (eingabe "your name\n"))
+
+create a fucntion to sum numbers from 0 to a 
+
+	(леть sum (фн [a] (/ ( * a (+ a 1) ) 2)))
+	(sum 100)
+
+sum 2 numbers gived by the user
+
+	 (+ (входнойавтомат) (входнойавтомат))
+
+check if even or odd
+
+	 (wenn (== (% (eingabeautomatik) 2) 0 ) (drucken "even") (drucken "odd") )
 
 
 ### References
