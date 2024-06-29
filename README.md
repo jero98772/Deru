@@ -43,6 +43,11 @@ check if even or odd
 	 (wenn (== (% (eingabeautomatik) 2) 0 ) (drucken "even") (drucken "odd") )
 
 
+Factorial
+
+	(леть fac  (фн [n] (если (== n 1 ) 1 (* n (fac (- n 1))) )) )
+
+
 ### References
 
 https://github.com/fluentpython/lispy

@@ -298,8 +298,8 @@ ns = {
         'список?': types._list_Q,
         'вектор': types._vector,
         'вектор?': types._vector_Q,
-        'хэш-таблица': types._hash_map,
-        'карта?': types._hash_map_Q,
+        'хаш-мап': types._hash_map,
+        'хаш-мап?': types._hash_map_Q,
         'связать': assoc,
         'развязать': dissoc,
         'получить': get,
@@ -403,8 +403,7 @@ ns = {
         'читати-файл': lambda file: open(file).read(),
         'час-мс': lambda: int(time.time() * 1000),
 
-        'хеш-мапа': types._hash_map,
-        'мапа?': types._hash_map_Q,
+
         'асоціювати': assoc,
         'деасоціювати': dissoc,
         'отримати': get,
