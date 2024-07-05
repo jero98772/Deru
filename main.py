@@ -578,7 +578,6 @@ def EVAL(ast, env):
                 ast = f.__ast__
                 env = f.__gen_env__(el[1:])
             else:
-                print(el[1:])
                 return f(*el[1:])
 
 # print
