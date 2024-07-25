@@ -37,7 +37,13 @@ def read_atom(reader):
     elif token[0] == ':':           return _keyword(token[1:])
     elif token == "nil":            return None
     elif token == "true":           return True
+    elif token == "правда":           return True
+    elif token == "wahr":           return True
     elif token == "false":          return False
+    elif token == "falsch":          return False
+    elif token == "ложь":          return False
+    elif token == "фальшивий":          return False
+
     else:                           return _symbol(token)
 
 def read_sequence(reader, typ=list, start='(', end=')'):

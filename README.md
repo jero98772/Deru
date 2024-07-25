@@ -1,4 +1,4 @@
-# deruuk (progress)
+# Deruuk 
 
 this is a lisp dialect act like programing langue in deutche sprech, Русский язык and Українська мова
 
@@ -46,6 +46,11 @@ check if even or odd
 Factorial
 
 	(леть fac  (фн [n] (если (== n 1 ) 1 (* n (fac (- n 1))) )) )
+
+
+Square
+
+	(let quadrat (fn [x] (* x x))) 
 
 
 ### References

@@ -513,7 +513,7 @@ def EVAL(ast, env):
         elif "quasiquote" == a0 or "квазицитата" == a0:
             ast = quasiquote(ast[1]);
             # Continue loop (TCO)
-        elif 'defmacro' == a0 or 'дефмакро' == a0:
+        elif 'defmacro' == a0 or 'defmakro' == a0 or 'дефмакро' == a0:
             func = types._clone(EVAL(ast[2], env))
             func._ismacro_ = True
             return env.set(ast[1], func)
@@ -597,8 +597,18 @@ repl_env.set(types._symbol('*ARGV*'), types._list(*sys.argv[2:]))
 # core.mal: defined using the language itself
 REP("(let *host-language* \"python\")")
 REP("(let not (fn (a) (if a false true)))")
+REP("(let nicht (fn (a) (wenn a falsch wahr)))")
+REP("(леть не (фн (a) (если a ложь правда)))")
+REP("(леть не (фн (a) (если a фальшивий правда)))")
+
 REP("(let load-file (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
+REP("(let datei-laden (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
+REP("(let загрузочный-файл (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
+REP("(let завантажити-файл (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
+
 REP("(defmacro cond (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
+REP("(дефмакро конд (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
+REP("(defmakro kond (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
 
 if len(sys.argv) >= 2:
     REP('(load-file "' + sys.argv[1] + '")')
