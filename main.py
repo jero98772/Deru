@@ -15,7 +15,7 @@ import mal_types as types
 
 from mal_types import MalException, List, Vector
 
-sys.setrecursionlimit(1000000)
+# Environment
 
 class Env():
     def __init__(self, outer=None, binds=None, exprs=None):
@@ -198,9 +198,9 @@ ns = {
         '<=': lambda a,b: a<=b,
         '>':  lambda a,b: a>b,
         '>=': lambda a,b: a>=b,
-        '+':  lambda a,b: a+b,
-        '-':  lambda a,b: a-b,
-        '*':  lambda a,b: a*b,
+        '+':  lambda *x: sum(x),
+        '-':  lambda *x: sum(x)*-1,
+        '*':  lambda *z: functools.reduce((lambda x, y: x * y), z),
         '/':  lambda a,b: int(a/b),
         '%':  lambda a,b: int(a%b),
 
@@ -513,7 +513,7 @@ def EVAL(ast, env):
         elif "quasiquote" == a0 or "квазицитата" == a0:
             ast = quasiquote(ast[1]);
             # Continue loop (TCO)
-        elif 'defmacro' == a0 or 'defmakro' == a0 or 'дефмакро' == a0:
+        elif 'defmacro' == a0 or 'дефмакро' == a0:
             func = types._clone(EVAL(ast[2], env))
             func._ismacro_ = True
             return env.set(ast[1], func)
@@ -560,17 +560,6 @@ def EVAL(ast, env):
         elif "fn" == a0 or "фн" == a0:
             a1, a2 = ast[1], ast[2]
             return types._function(EVAL, Env, a2, env, a1)
-        
-#        """elif "while" == a0 or "während" == a0 or "пока"  == a0 or "поки" == a0:
-#            a1, a2 = ast[1], ast[2]
-#            while True:  # Infinite loop until condition breaks it
-#                cond = EVAL(a1, env)
-#                if cond is None or cond is False:
-#                    ast = None
-#                    break  
-#                else:
-#                    ast = EVAL(a2, env)"""
-        
         else:
             el = eval_ast(ast, env)
             f = el[0]
@@ -597,18 +586,8 @@ repl_env.set(types._symbol('*ARGV*'), types._list(*sys.argv[2:]))
 # core.mal: defined using the language itself
 REP("(let *host-language* \"python\")")
 REP("(let not (fn (a) (if a false true)))")
-REP("(let nicht (fn (a) (wenn a falsch wahr)))")
-REP("(леть не (фн (a) (если a ложь правда)))")
-REP("(леть не (фн (a) (если a фальшивий правда)))")
-
 REP("(let load-file (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
-REP("(let datei-laden (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
-REP("(let загрузочный-файл (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
-REP("(let завантажити-файл (fn (f) (eval (read-string (str \"(do \" (slurp f) \"\nnil)\")))))")
-
 REP("(defmacro cond (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
-REP("(дефмакро конд (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
-REP("(defmakro kond (fn (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))")
 
 if len(sys.argv) >= 2:
     REP('(load-file "' + sys.argv[1] + '")')

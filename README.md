@@ -1,4 +1,4 @@
-# Deruuk 
+# deruuk (progress)
 
 this is a lisp dialect act like programing langue in deutche sprech, Русский язык and Українська мова
 
@@ -48,10 +48,11 @@ Factorial
 	(леть fac  (фн [n] (если (== n 1 ) 1 (* n (fac (- n 1))) )) )
 
 
-Square
+Some syntaxis sugar
 
-	(let quadrat (fn [x] (* x x))) 
-
+	(+ 2  3 12 3 412)
+	(* 2  3 12 3 412)
+	
 
 ### References
 
