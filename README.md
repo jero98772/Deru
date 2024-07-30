@@ -1,63 +1,86 @@
-# deruuk (progress)
+# Deruuk 🚀
 
-this is a lisp dialect act like programing langue in deutche sprech, Русский язык and Українська мова
+Deruuk is a Lisp dialect designed to support programming in German (Deutsche Sprache), Russian (Русский язык), and Ukrainian (Українська мова).
 
+## Introduction to Lisp 🧠
+Lisp (LISt Processing) is one of the oldest programming languages, known for its simple syntax and powerful macro system. It's particularly well-suited for symbolic computation and artificial intelligence applications. Deruuk aims to bring this powerful language into a multilingual context.
 
-### examples
-4 ways to do hello
-hello word
+## Examples 📚
 
-	(print "hello word")
+### Hello World in Four Languages 🌍
 
-hello word in german langague
+**English:**
+```lisp
+(print "hello world")
+```
 
-	(drucken "Hallo Welt")
+**German:**
+```lisp
+(drucken "Hallo Welt")
+```
 
+**Russian:**
+```lisp
+(печать "привет Мир")
+```
 
-hello word in russian langague
+**Ukrainian:**
+```lisp
+(друк "привіт світ")
+```
 
-	(печать "привет Мир")
+### More Examples ✨
 
-hello word in ukrain langague
+**Greet the user:**
+```lisp
+(drucken "hallo" (eingabe "your name\n"))
+```
 
-	(друк "привіт світ")
+**Create a function to sum numbers from 0 to a:**
+```lisp
+(леть sum (фн [a] (/ ( * a (+ a 1) ) 2)))
+(sum 100)
+```
 
+**Sum two numbers given by the user:**
+```lisp
+(+ (входнойавтомат) (входнойавтомат))
+```
 
-**more examples**
+**Check if a number is even or odd:**
+```lisp
+(wenn (== (% (eingabeautomatik) 2) 0 ) (drucken "even") (drucken "odd"))
+```
 
-great you
+**Factorial:**
+```lisp
+(леть fac (фн [n] (если (== n 1 ) 1 (* n (fac (- n 1))) )))
+```
 
-	(drucken "hallo" (eingabe "your name\n"))
+**Syntax Sugar:**
+```lisp
+(+ 2 3 12 3 412)
+(* 2 3 12 3 412)
+```
 
-create a fucntion to sum numbers from 0 to a 
+## How to Run 🏃‍♂️
 
-	(леть sum (фн [a] (/ ( * a (+ a 1) ) 2)))
-	(sum 100)
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/jero98772/deruuk.git
+    cd deruuk
+    ```
 
-sum 2 numbers gived by the user
+2. Run the main script:
+    ```bash
+    python main.py
+    ```
 
-	 (+ (входнойавтомат) (входнойавтомат))
+## Future Plans 🌟
+We are working on integrating Rust to add Tail Call Optimization (TCO) to improve performance. The related code is currently commented out.
 
-check if even or odd
+## References 🔗
 
-	 (wenn (== (% (eingabeautomatik) 2) 0 ) (drucken "even") (drucken "odd") )
-
-
-Factorial
-
-	(леть fac  (фн [n] (если (== n 1 ) 1 (* n (fac (- n 1))) )) )
-
-
-Some syntaxis sugar
-
-	(+ 2  3 12 3 412)
-	(* 2  3 12 3 412)
-	
-
-### References
-
-https://github.com/fluentpython/lispy
-
-https://norvig.com/lispy.html
-
-https://github.com/kanaka/mal
+- [Lispy by Fluent Python](https://github.com/fluentpython/lispy)
+- [Norvig's Lispy](https://norvig.com/lispy.html)
+- [Make a Lisp (mal) by Kanaka](https://github.com/kanaka/mal) <- give a star to this code i get most of this code from here
