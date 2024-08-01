@@ -16,7 +16,7 @@ import mal_types as types
 from mal_types import MalException, List, Vector
 
 # Environment
-
+sys.setrecursionlimit(1000000)
 class Env():
     def __init__(self, outer=None, binds=None, exprs=None):
         self.data = {}
@@ -557,6 +557,15 @@ def EVAL(ast, env):
             else:
                 ast = a2
             # Continue loop (TCO)
+#        elif "while" == a0 or "während" == a0 or "пока"  == a0 or "поки" == a0:
+#            a1, a2 = ast[1], ast[2]
+#            while True:  # Infinite loop until condition breaks it
+#                cond = EVAL(a1, env)
+#                if cond is None or cond is False:
+#                    ast = None
+#                    break  
+#                else:
+#                    ast = EVAL(a2, env)
         elif "fn" == a0 or "фн" == a0:
             a1, a2 = ast[1], ast[2]
             return types._function(EVAL, Env, a2, env, a1)
