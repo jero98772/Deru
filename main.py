@@ -569,6 +569,7 @@ def EVAL(ast, env):
         elif "fn" == a0 or "фн" == a0:
             a1, a2 = ast[1], ast[2]
             return types._function(EVAL, Env, a2, env, a1)
+
         else:
             el = eval_ast(ast, env)
             f = el[0]
