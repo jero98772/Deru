@@ -199,7 +199,7 @@ ns = {
         '>':  lambda a,b: a>b,
         '>=': lambda a,b: a>=b,
         '+':  lambda *x: sum(x),
-        '-':  lambda *x: sum(x)*-1,
+        '-':  lambda a,b: a-b,
         '*':  lambda *z: functools.reduce((lambda x, y: x * y), z),
         '/':  lambda a,b: int(a/b),
         '%':  lambda a,b: int(a%b),
@@ -552,8 +552,10 @@ def EVAL(ast, env):
             a1, a2 = ast[1], ast[2]
             cond = EVAL(a1, env)
             if cond is None or cond is False:
-                if len(ast) > 3: ast = ast[3]
-                else:            ast = None
+                if len(ast) > 3:
+                    ast = ast[3]
+                else:
+                    ast = None
             else:
                 ast = a2
             # Continue loop (TCO)

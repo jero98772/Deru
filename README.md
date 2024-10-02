@@ -57,6 +57,11 @@ Lisp (LISt Processing) is one of the oldest programming languages, known for its
 (леть fac (фн [n] (если (== n 1 ) 1 (* n (fac (- n 1))) )))
 ```
 
+**Fibonacci:**
+```lisp
+(let fibonacci (fn [n] (если (<= n 1) n (+ (fibonacci (- n 1)) (fibonacci (- n 2))))))
+```
+
 **Syntax Sugar:**
 ```lisp
 (+ 2 3 12 3 412)
