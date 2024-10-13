@@ -1,6 +1,6 @@
-# Deruuk 🚀
+# Deru 🚀
 
-Deruuk is a Lisp dialect designed to support programming in German (Deutsche Sprache), Russian (Русский язык), and Ukrainian (Українська мова).
+Deru is a Lisp dialect designed to support programming in German (Deutsche Sprache), Russian (Русский язык).
 
 ## Introduction to Lisp 🧠
 Lisp (LISt Processing) is one of the oldest programming languages, known for its simple syntax and powerful macro system. It's particularly well-suited for symbolic computation and artificial intelligence applications. Deruuk aims to bring this powerful language into a multilingual context.
@@ -22,11 +22,6 @@ Lisp (LISt Processing) is one of the oldest programming languages, known for its
 **Russian:**
 ```lisp
 (печать "привет Мир")
-```
-
-**Ukrainian:**
-```lisp
-(друк "привіт світ")
 ```
 
 ### More Examples ✨
