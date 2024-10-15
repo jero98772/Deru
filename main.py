@@ -384,50 +384,7 @@ ns = {
         'dereferenzieren': deref,
         'zurücksetzen!': reset_BANG,
         'wechseln!': swap_BANG,
-#ukraine
-        'кидок': throw,
-        'істина?': types._true_Q,
-        'брехня?': types._false_Q,
-        'рядок?': types._string_Q,
-        'функція?': lambda x: (types._function_Q(x) and not hasattr(x, '_ismacro_')),
 
-        'рядок-відображення': pr_str,
-        'рядок': do_str,
-        'друк': prn,
-        'друк-рядка': println,
-        'вхід': input,
-        'вхідавто': inputeval,
-
-        'читати-рядок': lambda prompt: mal_readline.readline(prompt),
-        'читати-рядок': reader.read_str,
-        'читати-файл': lambda file: open(file).read(),
-        'час-мс': lambda: int(time.time() * 1000),
-
-
-        'асоціювати': assoc,
-        'деасоціювати': dissoc,
-        'отримати': get,
-        'містить?': contains_Q,
-        'ключі': keys,
-
-        'послідовний?': types._sequential_Q,
-        'додати': cons,
-        'обєднати': concat,
-        'енний': nth,
-        'перший': first,
-        'залишок': rest,
-        'порожній?': empty_Q,
-        'лічити': count,
-        'застосувати': apply,
-        'відобразити': mapf,
-
-        'приєднати': conj,
-        'послідовність': seq,
-
-        'з-метаданими': with_meta,
-        'метадані': meta,
-        'розіменувати': deref,
-        'скинути!': reset_BANG,
         }
 # read
 def READ(str):
