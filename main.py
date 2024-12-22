@@ -1,6 +1,3 @@
-
-#from deruuk import tokenize,atom,read_from_tokens
-
 import functools
 import sys, traceback
 
@@ -472,9 +469,9 @@ def EVAL(ast, env):
             # Continue loop (TCO)
         elif 'defmacro' == a0 or 'defmakro' == a0 or 'дефмакро' == a0:
             func = types._clone(EVAL(ast[2], env))
-            func._ismacro_ = True
+            #func._ismacro_ = True
             return env.set(ast[1], func)
-        elif 'macroexpand' == a0 or 'Makroexpandierung' == a0 or 'макрорасширение' == a0 or 'макророзширення' == a0:
+        elif 'macroexpand' == a0 or 'Makroexpandierung' == a0 or 'макрорасширение' == a0:
             return macroexpand(ast[1], env)
         elif "py!" == a0 or "пй!" == a0:
             exec(compile(ast[1], '', 'single'), globals())
@@ -485,11 +482,11 @@ def EVAL(ast, env):
             el = eval_ast(ast[2:], env)
             f = eval(ast[1])
             return f(*el)
-        elif "try" == a0 or "versuch" == a0 or "проба" == a0 or "спроба" == a0:
+        elif "try" == a0 or "versuch" == a0 or "проба" == a0:
             if len(ast) < 3:
                 return EVAL(ast[1], env)
             a1, a2 = ast[1], ast[2]
-            if a2[0] == "catch" or a2[0] == "fangen" or a2[0] == "поймать" or a2[0] == "зловити":
+            if a2[0] == "catch" or a2[0] == "fangen" or a2[0] == "поймать":
                 err = None
                 try:
                     return EVAL(a1, env)
@@ -501,11 +498,11 @@ def EVAL(ast, env):
                 return EVAL(a2[2], catch_env)
             else:
                 return EVAL(a1, env);
-        elif "do" == a0 or "tun" == a0 or "делать" == a0 or "робити" == a0:
+        elif "do" == a0 or "tun" == a0 or "делать" == a0 :
             eval_ast(ast[1:-1], env)
             ast = ast[-1]
             # Continue loop (TCO)
-        elif "if" == a0 or "wenn" == a0 or "если"  == a0 or "якщо" == a0:
+        elif "if" == a0 or "wenn" == a0 or "если"  == a0:
             a1, a2 = ast[1], ast[2]
             cond = EVAL(a1, env)
             if cond is None or cond is False:
@@ -573,7 +570,7 @@ if len(sys.argv) >= 2:
     sys.exit(0)
 
 # repl loop
-REP("(println (str \"Mal [\" *host-language* \"]\"))")
+REP("(println (str \"i take most of the code from https://github.com/kanaka/mal  Mal [\" *host-language* \"]\"))")
 while True:
     try:
         line = mal_readline("user> ")
