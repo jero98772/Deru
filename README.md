@@ -3,7 +3,9 @@
 Deru is a Lisp dialect designed to support programming in German (Deutsche Sprache), Russian (Русский язык).
 
 ## Introduction to Lisp 🧠
-Lisp (LISt Processing) is one of the oldest programming languages, known for its simple syntax and powerful macro system. It's particularly well-suited for symbolic computation and artificial intelligence applications. Deruuk aims to bring this powerful language into a multilingual context.
+Lisp (LISt Processing) is one of the oldest programming languages, known for its simple syntax and powerful macro system. It's particularly well-suited for symbolic computation and artificial intelligence applications. Deru aims to bring this powerful language into a multilingual context.
+
+This programing language is a example to learn how to make a programming language in a easy way 
 
 ## Examples 📚
 
